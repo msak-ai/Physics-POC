@@ -1,0 +1,21 @@
+const GETAsync = async () => {
+    try {
+        const response = await fetch(url);
+        if (response.ok) {
+            const data = await response.text();
+            console.log(data);
+            fs.writeFile('output.csv', data, async (err) => {
+                if (err) throw err;
+                try {
+                    const csv = new csvtojson();
+                    const json = await csv.fromFile('output.csv');
+                    const stable_nuclei = json.find((x) => (x.z === '92' && x.n === '143'));
+                    console.log(stable_nuclei);
+                    // use filter function
+                } catch (err) {
+                    console.log(err);
+                }
+            })
+        }
+    } catch (error) { console.log(error) }
+}
