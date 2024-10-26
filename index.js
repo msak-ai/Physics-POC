@@ -4,7 +4,10 @@ import * as fs from 'fs';
 import cors from 'cors'
 import express from 'express';
 let input = "all";
-const url = `http://nds.iaea.org/relnsd/v1/data?fields=ground_states&nuclides=${input}`;
+// ip = 104.20.50.185;
+// const url = `http://104.20.50.185/relnsd/v1/data?fields=ground_states&nuclides=${input}`;
+const  url = `https://www-nds.iaea.org/relnsd/v1/data?fields=ground_states&nuclides=all`
+// const url = `http://nds.iaea.org/relnsd/v1/data?fields=ground_states&nuclides=${input}`;
 const app = express();
 const PORT = process.env.PORT || 4444;
 
